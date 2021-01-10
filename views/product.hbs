@@ -1,0 +1,39 @@
+{{#if validationErrors}}
+    <p class="alert alert-danger mt-2">
+        {{validationErrors.msg}}
+    </p>
+{{/if}}
+
+{{#if product}}
+    <div class="row">
+        <div class="col col-12 col-md-6">
+            <div class="card mt-5" style="width: 100%;">
+                <img src="/{{product.image}}" class="card-img-top" style="max-height: 400px" >
+                <div class="card-body">
+                <form action="/cart" method="post">
+                        <input type="number" name="amount" class="form-control">
+                        <input type="hidden" name="name" value="{{product.name}}">
+                        <input type="hidden" name="price" value="{{product.price}}">
+                        <input type="hidden" name="productId" value="{{product._id}}">
+                        <input type="hidden" name="redirectTo" value="/product/{{product._id}}">
+                        <input type="submit" value="Add to cart" class="btn btn-primary mt-3">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col col-12 col-md-6 mt-5">
+            <h3>{{product.name}}</h3>
+            <h5>Price: {{product.price}} $</h5>
+            <p>{{product.description}}</p>
+        </div>
+        
+    </div>
+
+{{else}}
+    <div class="alert alert-danger">
+        there is no product matches this id
+    </div>
+
+{{/if}}
+
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{pageTitle}} - Online Shop</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home</span></a>
+      </li>
+      {{#if isUser}}
+        <li class="nav-item">
+          <a class="nav-link" href="/cart">Cart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/orders">Orders</a>
+        </li>
+      {{else}}
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/signup">Signup</a>
+        </li>
+      {{/if}}
+      {{#if isAdmin}}
+        <li class="nav-item">
+        <a class="nav-link" href="/admin/add">Add product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/orders">Mange Order</a>
+        </li>
+      {{/if}}
+    </ul>
+    {{#if isUser}}
+      <form action="/logout" method="post">
+        <input type="submit" value="Logout" class="btn btn-danger">
+      </form>
+    {{/if}}
+  </div>
+        </div>
+  
+    </nav>
+    <div class="container">
+        {{{body}}}
+    </div>
+
+
+
+
+
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

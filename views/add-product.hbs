@@ -1,0 +1,27 @@
+<div class="container">
+    <h3>Add Product</h3>
+    <form action="/admin/add" method="post" enctype="multipart/form-data">
+        <input type="text" name="name" class="form-control mt-3" placeholder="Name">
+        <input type="number" class="form-control mt-3" name="price" placeholder="Price">
+        <textarea type="password" class="form-control mt-3" name="description" placeholder="Description"></textarea>
+        <select type="password" class="form-control mt-3" name="category">
+                <option value="" selected>Choose a category</option>
+                <option value="clothes">Clothes</option>
+                <option value="phones">Phones</option>
+                <option value="computers">Computers</option>
+        </select>
+        <input type="file" class="form-control mt-3" name="image" placeholder="Image">
+        <input type="submit" value="Add Product" class="btn btn-primary mt-3">
+    </form>
+
+    {{#each validationErrors}}
+            <p class="alert alert-danger mt-2">
+                {{this.msg}}
+            </p>
+    {{/each}}
+    {{#if productAdded}}
+        <p class="alert alert-success mt-3">
+            Product added successfully
+        </p>
+    {{/if}}
+</div>

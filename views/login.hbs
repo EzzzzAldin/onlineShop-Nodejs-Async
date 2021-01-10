@@ -1,0 +1,24 @@
+<div class="container text-center">
+    <h3>Login</h3>
+    <form action="/login" method="post">
+        <input type="email" class="form-control mb-3" name="email" placeholder="E-mail">
+        <input type="password" class="form-control mb-3" name="password" placeholder="Password">
+        <input type="submit" value="Login" class="btn btn-primary">
+    </form>
+    {{#if authError}}
+        <br>
+        <p class="alert alert-danger">
+            {{authError}}
+        </p>
+    {{/if}}
+    {{#each validationErrors}}
+        <p class="alert alert-danger mt-2">
+            {{this.msg}}
+        </p>
+
+    {{/each}}
+    <br>
+    <div>
+       Don't have account ? <a href="/signup">Create Account</a>
+    </div>
+</div>
